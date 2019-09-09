@@ -10,6 +10,9 @@
 
 #define VL6180X_DEFAULT_I2C_ADDR 0x29  ///< The fixed I2C addres
 
+#define VL6180X_WRITE_I2C_ADDR 0x29  ///< The fixed I2C addres
+#define VL6180X_READ_I2C_ADDR 0x29  ///< The fixed I2C addres
+
 ///! Device model identification number
 #define VL6180X_REG_IDENTIFICATION_MODEL_ID    0x000
 ///! Interrupt configuration
