@@ -128,9 +128,8 @@ void VL6180_loadSettings(void)
 }
 void VL6180_printLoadSettings(void)
 {
-    // load settings!
+    // print load settings!
 
-    // private settings from page 24 of app note
     debug_log.printf("VL6180X_REG_IDENTIFICATION_MODEL_ID: 0x%0x\r\n", read8(VL6180X_REG_IDENTIFICATION_MODEL_ID));
     debug_log.printf("0x0207: 0x%0x\r\n", read8(0x0207));
     debug_log.printf("0x0208: 0x%0x\r\n", read8(0x0208));
@@ -138,25 +137,33 @@ void VL6180_printLoadSettings(void)
     debug_log.printf("0x0097: 0x%0x\r\n", read8(0x0097));
     debug_log.printf("0x00e3: 0x%0x\r\n", read8(0x00e3));
     debug_log.printf("0x00e4: 0x%0x\r\n", read8(0x00e4));
-    //write8(0x00e5, 0x02);
-    //write8(0x00e6, 0x01);
-    //write8(0x00e7, 0x03);
-    //write8(0x00f5, 0x02);
-    //write8(0x00d9, 0x05);
-    //write8(0x00db, 0xce);
-    //write8(0x00dc, 0x03);
-    //write8(0x00dd, 0xf8);
-    //write8(0x009f, 0x00);
-    //write8(0x00a3, 0x3c);
-    //write8(0x00b7, 0x00);
-    //write8(0x00bb, 0x3c);
-    //write8(0x00b2, 0x09);
+    debug_log.printf("0x00e5: 0x%0x\r\n", read8(0x00e5));
+    debug_log.printf("0x00e6: 0x%0x\r\n", read8(0x00e6));
+    debug_log.printf("0x00e7: 0x%0x\r\n", read8(0x00e7));
+    debug_log.printf("0x00f5: 0x%0x\r\n", read8(0x00f5));
+    debug_log.printf("0x00d9: 0x%0x\r\n", read8(0x00d9));
+    debug_log.printf("0x00db: 0x%0x\r\n", read8(0x00db));
+    debug_log.printf("0x00dc: 0x%0x\r\n", read8(0x00dc));
+    debug_log.printf("0x00dd: 0x%0x\r\n", read8(0x00dd));
+    debug_log.printf("0x009f: 0x%0x\r\n", read8(0x009f));
+    debug_log.printf("0x00a3: 0x%0x\r\n", read8(0x00a3));
+    debug_log.printf("0x00b7: 0x%0x\r\n", read8(0x00b7));
+    debug_log.printf("0x00bb: 0x%0x\r\n", read8(0x00bb));
+    debug_log.printf("0x00b2: 0x%0x\r\n", read8(0x00b2));
+    //write8(, 0x09);
+    debug_log.printf(": 0x%0x\r\n", read8());
     //write8(0x00ca, 0x09);
+    debug_log.printf(": 0x%0x\r\n", read8());
     //write8(0x0198, 0x01);
+    debug_log.printf(": 0x%0x\r\n", read8());
     //write8(0x01b0, 0x17);
+    debug_log.printf(": 0x%0x\r\n", read8());
     //write8(0x01ad, 0x00);
+    debug_log.printf(": 0x%0x\r\n", read8());
     //write8(0x00ff, 0x05);
+    debug_log.printf(": 0x%0x\r\n", read8());
     //write8(0x0100, 0x05);
+    debug_log.printf(": 0x%0x\r\n", read8());
     //write8(0x0199, 0x05);
     debug_log.printf("0x01a6: 0x%0x\r\n", read8(0x01a6));
     debug_log.printf("0x01ac: 0x%0x\r\n", read8(0x01ac));
@@ -164,26 +171,35 @@ void VL6180_printLoadSettings(void)
     debug_log.printf("0x0030: 0x%0x\r\n", read8(0x0030));
 
     //// Recommended : Public registers - See data sheet for more detail
+    debug_log.printf(": 0x%0x\r\n", read8());
     //write8(0x0011, 0x10);       // Enables polling for 'New Sample ready'
     //                            // when measurement completes
+    debug_log.printf(": 0x%0x\r\n", read8());
     //write8(0x010a, 0x30);       // Set the averaging sample period
     //                            // (compromise between lower noise and
     //                            // increased execution time)
+    debug_log.printf(": 0x%0x\r\n", read8());
     //write8(0x003f, 0x46);       // Sets the light and dark gain (upper
     //                            // nibble). Dark gain should not be
     //                            // changed.
+    debug_log.printf(": 0x%0x\r\n", read8());
     //write8(0x0031, 0xFF);       // sets the # of range measurements after
     //                            // which auto calibration of system is
     //                            // performed
+    debug_log.printf(": 0x%0x\r\n", read8());
     //write8(0x0040, 0x63);       // Set ALS integration time to 100ms
+    debug_log.printf(": 0x%0x\r\n", read8());
     //write8(0x002e, 0x01);       // perform a single temperature calibration
     //                            // of the ranging sensor
 
     //// Optional: Public registers - See data sheet for more detail
+    debug_log.printf(": 0x%0x\r\n", read8());
     //write8(0x001b, 0x09);       // Set default ranging inter-measurement
     //                            // period to 100ms
+    debug_log.printf(": 0x%0x\r\n", read8());
     //write8(0x003e, 0x31);       // Set default ALS inter-measurement period
     //                            // to 500ms
+    debug_log.printf(": 0x%0x\r\n", read8());
     //write8(0x0014, 0x24);       // Configures interrupt on 'New Sample
                                 // Ready threshold event'
 }
@@ -222,7 +238,7 @@ uint8_t readRange(void) {
   write8(VL6180X_REG_SYSRANGE_START, 0x01);
 
   // Poll until bit 2 is set
-  while (! (read8(VL6180X_REG_RESULT_INTERRUPT_STATUS_GPIO) & 0x04));
+  while (! (read8(V6180X_REG_RESULT_INTERRUPT_STATUS_GPIO) & 0x04));L
 
   // read range in mm
   uint8_t range = read8(VL6180X_REG_RESULT_RANGE_VAL);

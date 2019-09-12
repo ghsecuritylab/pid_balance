@@ -8,10 +8,18 @@
 
 ### VL6180x
 
-![avatar](resources/VL6180x_i2c.png)
+#### 引脚定义
+
+![avatar](resources/VL6180X_timing.png)
 
 I2C address is `0x29`(7bit)
 
-![avatar](resources/VL6180X_timing.png)
+#### GPIO1
+
+![avatar](resources/VL6180X_GPIO1.png)
+
+#### I2C 通信协议
+
+![avatar](resources/VL6180x_i2c.png)
 
 #### mbed-OS I2C
