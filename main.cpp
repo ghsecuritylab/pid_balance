@@ -304,6 +304,17 @@ void vl6180x_thread(void const *args)
 	}
 }
 
+void mpu9150_thread(void const *args)
+{
+	vl6180_init();
+	//VL6180_printLoadSettings();
+	
+	while(true) {
+		Thread::wait(1000);
+		debug_log.printf("this is thread vl6180x\r\n");
+	}
+}
+
 int main()
 {
     debug_log.baud(115200);
@@ -311,7 +322,8 @@ int main()
 	
     Thread thread_led(led2_thread);
     Thread thread_motor(motor_thread);
-	Thread thread_vl6180x(vl6180x_thread);
+	//Thread thread_vl6180x(vl6180x_thread);
+	Thread thread_mpu9150(mpu9150_thread);
 	
     debug_log.printf("hello world\r\n");
 
