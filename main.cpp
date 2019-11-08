@@ -96,7 +96,7 @@ int main()
 {
     //__disable_irq();
     //__enable_irq();
-    debug_log.baud(115200);
+    debug_log.baud(115200);//115200 bitrates
 
     Thread thread_led(led2_thread);
     Thread thread_motor(motor_thread);
